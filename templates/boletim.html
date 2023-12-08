@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p>Boletim do SUAP</p>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Disciplina</th>
+          <th scope="col">Nota etapa 1</th>
+          <th scope="col">Nota etapa 2</th>
+          <th scope="col">Nota etapa 3</th>
+          <th scope="col">Nota etapa 4</th>
+        </tr>
+        {% for disciplina in boletim %}
+          <tr>
+            <td scope="row">{{disciplina['disciplina']}}</td>
+            <td scope="row">{{disciplina['nota_etapa_1']['nota']}}</td>
+            <td scope="row">{{disciplina['nota_etapa_2']['nota']}}</td>
+            <td scope="row">{{disciplina['nota_etapa_3']['nota']}}</td>
+            <td scope="row">{{disciplina['nota_etapa_4']['nota']}}</td>
+          </tr>
+        {% endfor %}
+      </thead>
+    </table>
+    </html>
+  
+  {% endblock %}
+
