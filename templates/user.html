@@ -6,9 +6,18 @@
             <h2 class="text-center">{% block title %} {{ user_data['nome_usual'] }} {% endblock %}</h2>
             <img src="https://suap.ifrn.edu.br{{ user_data['url_foto_150x200'] }}" alt="foto" class="img-fluid">
 
-            {% for field in user_data %}
-                <p><b>{{ field }}</b>: {{ user_data[field] }}</p>
-            {% endfor %}
+            <table class="table">
+                <tbody>
+                    {% for field, value in user_data.items() %}
+                        {% if field != 'url_foto_150x200' %}
+                            <tr>
+                                <th>{{ field }}</th>
+                                <td>{{ value }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
 
             <p><a href="{{ url_for('logout') }}">Logout</a></p>
 
@@ -20,3 +29,4 @@
         </div>
     </div>
 {% endblock %}
+
